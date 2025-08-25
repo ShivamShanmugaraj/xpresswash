@@ -9,109 +9,104 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Black+Ops+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Black+Ops+One&display=swap" rel="stylesheet" />
   <style>
- .xpress-title, .xpress-subtitle {
-  font-family: 'Black Ops One', Arial, sans-serif !important;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  background: linear-gradient(to bottom, #c6efff, #53a8d5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 700;
-  text-align: center;
-  margin: 0;
-}
-.xpress-title {
-  font-size: 3rem;
-}
-.xpress-subtitle {
-  font-size: 1.5rem;
-  font-weight: 400;
-  letter-spacing: 12px;
-  margin-top: -2px;
-  -webkit-text-fill-color: #8cd4f7;  /* Subtle blue; or remove for gradient */
-  background: none; /* Use plain blue text if preferred */
-}
- body::before {
-  content: "";
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 600px; /* Adjust width */
-  height: 600px; /* Adjust height */
-  transform: translate(-50%, -50%);
-  background: url('img/logo.jpeg') no-repeat center center;
-  background-size: contain;
-  opacity: 0.05; /* Adjust for more or less visibility */
-  filter: blur(1px);
-  z-index: 0;
-  pointer-events: none;
-}
-
+    .xpress-title {
+      font-family: 'Black Ops One', sans-serif !important;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      background: linear-gradient(to bottom, #c6efff, #53a8d5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      font-size: 7rem;
+    }
+    .xpress-subtitle {
+      font-family:  Arial, sans-serif !important;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      background: linear-gradient(to bottom, #c6efff, #53a8d5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 12px;
+      margin-top: -2px;
+      -webkit-text-fill-color: #8cd4f7;
+      background: none;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      transform: translate(-50%, -50%);
+      background: url('img/logo.jpeg') no-repeat center center;
+      background-size: contain;
+      opacity: 0.05;
+      filter: blur(1px);
+      z-index: 0;
+      pointer-events: none;
+    }
     body {
       font-family: Arial, sans-serif;
       scroll-behavior: smooth;
       background-color: #031635;
+      margin: 0;
+      padding: 0;
     }
-
     .navbar {
-      background-color: #031635; /* Updated background to #031635 */
+      background-color: #031635;
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
     }
-
+    .navbar-brand {
+      gap: 15px;
+    }
     .navbar-brand img {
-      height: 140px;
-      width: 100px;
-      margin-right: 1px;
-      margin-bottom: 4px;
+      height: 80px;
+      width: auto;
+      display: block;
     }
-
-    .navbar-brand h3 {
-      font-size: 1.25rem;
-    }
-
     .nav-link {
       color: white !important;
       cursor: pointer;
     }
-
     .section {
       padding: 60px 20px;
     }
-
     .footer {
-      background-color: #031635; /* Same as navbar */
+      background-color: #031635;
       color: white;
       padding: 20px;
       text-align: center;
     }
-
     .a:hover {
       color: #cceeff;
     }
-
     /* Contact Us Section */
     #contact {
       background-color: #031635;
       color: white;
       padding: 60px 0;
     }
-
     #contact .bg-primary {
       background-color: #05386b !important;
     }
-
     #contact .bg-success {
-      background-color: #25d366 !important; /* WhatsApp green */
+      background-color: #25d366 !important;
     }
-
     #contact .fa-2x {
       min-width: 40px;
       text-align: center;
     }
-
     /* Floating WhatsApp Button */
     #whatsapp-float {
       position: fixed;
@@ -131,13 +126,11 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
-
     #whatsapp-float:hover {
       background-color: #1ebe57;
       text-decoration: none;
       color: white;
     }
-
     /* Back to Top Button */
     #back-to-top {
       position: fixed;
@@ -156,122 +149,128 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
       transition: background-color 0.3s ease;
     }
-
     #back-to-top:hover {
       background-color: #05386b;
     }
-
     /* Responsive fixes */
     @media (max-width: 767.98px) {
       #contact .d-flex.justify-content-center {
         flex-direction: column !important;
       }
-
       #contact .col-md-6,
       #contact .col-lg-3 {
         max-width: 100%;
         margin-bottom: 20px;
       }
     }
-
     /* === Fixed height for service boxes === */
     .service-box {
-      height: 320px; /* fixed height */
+      height: 320px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       border-radius: 0.25rem;
-      padding: 1.5rem !important; /* override inline padding */
+      padding: 1.5rem !important;
     }
-.washing-bg {
-  background: url('img/washing.jpeg') no-repeat center center/cover;
-  color: blue; /* Already in your code */
-  position: relative; /* Needed for absolute child */
-}
-.folding-bg {
-  background: url('img/folding.jpeg') no-repeat center center/cover;
-  color: blue; /* Already in your code */
-  position: relative; /* Needed for absolute child */
-}
-.ironing-bg {
-  background: url('img/ironing.jpg') no-repeat center center/cover;
-  color: blue; /* Already in your code */
-  position: relative; /* Needed for absolute child */
-}
-.service-title-top {
-  position: absolute;
-  top: -35px;       /* Adjust as needed */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;      /*  Makes it readable on all screens */
-  text-align: center;
-  color:white ;  /* #0b254bChoose a color with good contrast */
-  font-weight: bold;
-  font-size: 1.5rem;
-  /*background: rgba(255,255,255,0.25);  Optional: slightly improves readability */
-  margin: 0;
-  padding: 0.2em 0;
-  border-radius: 0.2em;
-  z-index: 2;
-  letter-spacing: .5px;
-}
-.pickup-btn {
-  background: #ffffff !important;   /* white background */
-  color: #031635 !important;        /* dark blue text */
-  font-weight: 600;
-  border-radius: 8px;
-}
-
-.pickup-btn:hover {
-  background: #f8f9fa !important;   /* light gray on hover */
-  color: #031635 !important;        /* keep dark blue text */
-}
-.contact-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
-  }
+    .washing-bg {
+      background: url('img/washing.jpeg') no-repeat center center/cover;
+      color: blue;
+      position: relative;
+    }
+    .folding-bg {
+      background: url('img/folding.jpeg') no-repeat center center/cover;
+      color: blue;
+      position: relative;
+    }
+    .ironing-bg {
+      background: url('img/ironing.jpg') no-repeat center center/cover;
+      color: blue;
+      position: relative;
+    }
+    .service-title-top {
+      position: absolute;
+      top: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin: 0;
+      padding: 0.2em 0;
+      border-radius: 0.2em;
+      z-index: 2;
+      letter-spacing: .5px;
+    }
+    .pickup-btn {
+      background: #ffffff !important;
+      color: #031635 !important;
+      font-weight: 600;
+      border-radius: 8px;
+    }
+    .pickup-btn:hover {
+      background: #f8f9fa !important;
+      color: #031635 !important;
+    }
+    .contact-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+    }
+    /* Floating PickUp & Drop Button */
+    #pickup-floating-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1050;
+      border-radius: 50px;
+      padding: 12px 25px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      font-weight: 600;
+      background: white;
+      color: #031635;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+    #pickup-floating-btn:hover {
+      background-color: #f8f9fa;
+      color: #031635;
+    }
   </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #031635;">
-  <a class="navbar-brand d-flex align-items-center" href="#">
-    <img src="img/logo.jpeg" alt="XPRESS WASH Logo" />
+<!-- Navbar: logo and name -->
+<nav class="navbar navbar-dark" style="background-color: #031635; padding: 0.5rem 1rem;">
+  <a class="navbar-brand d-flex align-items-center" href="#" style="gap: 15px;">
+    <img src="img/logo.jpeg" alt="XPRESS WASH Logo" style="height: 250px; width: auto;" />
+    <div class="d-flex flex-column justify-content-center">
+      <h3 class="xpress-title mb-0">XPRESS WASH</h3>
+      <h6 class="xpress-subtitle mb-0">WASH DRY FOLD</h6>
+    </div>
   </a>
+</nav>
 
-  <div
-    class="text-center px-2 py-1"
-    style="background-color: #031635; height: 80px; display: flex; flex-direction: column; justify-content: center;"
-  >
-    <h3 class="xpress-title">XPRESS WASH</h3>
-    <h6 class="xpress-subtitle">WASH DRY FOLD</h6>
-  </div>
-
+<!-- Navbar: menu links -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #031635; padding: 0.25rem 1rem;">
   <button
     class="navbar-toggler"
     type="button"
     data-toggle="collapse"
     data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
   >
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
     <ul class="navbar-nav">
-<li class="nav-item">
-  <a class="btn px-3 pickup-btn"
-     href="#"
-     data-toggle="modal"
-     data-target="#pickupDropModal">
-     🚖 PickUp & Drop
-  </a>
-</li>
-
-
       <li class="nav-item">
         <a class="nav-link" href="#services">Services</a>
       </li>
@@ -285,6 +284,11 @@
   </div>
 </nav>
 
+<!-- Floating PickUp & Drop Button -->
+<button id="pickup-floating-btn" data-toggle="modal" data-target="#pickupDropModal" aria-label="PickUp & Drop">
+  🚖 PickUp & Drop
+</button>
+
 <!-- PickUp & Drop Modal -->
 <div
   class="modal fade"
@@ -294,7 +298,7 @@
   aria-hidden="true"
 >
   <div class="modal-dialog">
-    <div class="modal-content bg-white"> <!-- White background added -->
+    <div class="modal-content bg-white">
       <div class="modal-header">
         <h5 class="modal-title" id="pickupDropLabel">PickUp & Drop Form</h5>
         <button
@@ -329,60 +333,31 @@
   </div>
 </div>
 
-
-<!-- Script -->
-<script>
-  document.getElementById("pickupForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    let name = document.getElementById("name").value;
-    let address = document.getElementById("address").value;
-    let phone = document.getElementById("phone").value;
-
-    // Your WhatsApp number with country code (without + or spaces)
-    let whatsappNumber = "916379906509";
-
-    let message = `Hello, I want PickUp & Drop Service.%0A
-Name: ${name}%0A
-Address: ${address}%0A
-Phone: ${phone}`;
-
-    let url = `https://wa.me/${916379906509}?text=${message}`;
-
-    window.open(url, "_blank");
-  });
-</script>
-
-
 <!-- Services Start -->
 <div class="container-fluid pt-5 pb-3 section" id="services">
   <div class="container">
-    <!--h5 class="text-secondary text-uppercase text-center font-weight-medium mb-3">Our Services</h5-->
     <h3 class="display-5 text-center text-uppercase mb-5 text-white">Our Services</h3>
-    <!--h2 class="display-4 text-center mb-5 text-white">What We Offer</h2-->
-
     <div class="row">
-<div class="col-lg-4 col-md-6 mb-4">
-  <div class="text-center service-box p-4 shadow rounded washing-bg position-relative">
-    <h6 class="service-title-top">Washing</h6>
-    <!-- More content here if you wish -->
-  </div>
-</div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="text-center service-box p-4 shadow rounded washing-bg position-relative">
+          <h6 class="service-title-top">Washing</h6>
+          <!--p class="text-black mt-4">Professional washing services that gently clean your clothes with premium detergents.</p-->
+        </div>
+      </div>
 
-<div class="col-lg-4 col-md-6 mb-4">
-  <div class="text-center service-box p-4 shadow rounded folding-bg position-relative">
-    <h5 class="service-title-top">Drying & Folding</h5>
-    <!-- More content here if you wish -->
-  </div>
-</div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="text-center service-box p-4 shadow rounded folding-bg position-relative">
+          <h5 class="service-title-top">Drying & Folding</h5>
+          <!--p class="text-black mt-4">Efficient drying and expert folding to keep your garments fresh, neat, and wrinkle-free.</p-->
+        </div>
+      </div>
 
-<div class="col-lg-4 col-md-6 mb-4">
-  <div class="text-center service-box p-4 shadow rounded ironing-bg position-relative">
-    <h5 class="service-title-top">Ironing</h5>
-    <!-- More content here if you wish -->
-  </div>
-</div>
-
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="text-center service-box p-4 shadow rounded ironing-bg position-relative">
+          <h5 class="service-title-top">Ironing</h5>
+          <!--p class="text-black mt-4">Professional ironing to ensure your clothes look crisp and polished for any occasion.</p-->
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -390,7 +365,7 @@ Phone: ${phone}`;
 <!-- About Start -->
 <div class="container-fluid py-5 section" id="about">
   <div class="container pt-0 pt-lg-4">
-	<h5 class="display-5 text-center text-uppercase mb-2 text-white">Learn About Us</h5>
+    <h5 class="display-5 text-center text-uppercase mb-2 text-white">Learn About Us</h5>
     <h2 class="display-4 text-center text-white mb-3">Your Trusted Laundry Service in the City</h2>
     <div class="row">
       <div class="col-lg-4">
@@ -439,20 +414,20 @@ Phone: ${phone}`;
 <div class="container-fluid py-5" id="contact" style="background:#031635;">
   <div class="container">
     <h4 class="display-5 text-center text-uppercase mb-5 text-white">Contact Us</h4>
-    <div class="row gy-4 gx-4"> <!-- gy = vertical gap, gx = horizontal gap -->
-      
-      <!-- Location -->
-<div class="d-flex flex-column align-items-center justify-content-center bg-primary text-white p-4 rounded h-100 contact-card text-center">
-  <i class="fa fa-map-marker-alt fa-2x mb-3"></i>
-  <h5 class="mb-2">Our Location</h5>
-  <p class="mb-0">
-    <a href="https://maps.app.goo.gl/gUQyHYoPBKKNcqXbA" target="_blank" style="color: #fff; text-decoration: underline;">
-      Namakkal, TamilNadu
-    </a>
-  </p>
-</div>
+    <div class="row gy-4 gx-4">
 
-      <!-- Email -->
+      <div class="col-md-6 col-lg-3">
+        <div class="d-flex flex-column align-items-center justify-content-center bg-primary text-white p-4 rounded h-100 contact-card text-center">
+          <i class="fa fa-map-marker-alt fa-2x mb-3"></i>
+          <h5 class="mb-2">Our Location</h5>
+          <p class="mb-0">
+            <a href="https://maps.app.goo.gl/gUQyHYoPBKKNcqXbA" target="_blank" style="color: #fff; text-decoration: underline;">
+              Namakkal, TamilNadu
+            </a>
+          </p>
+        </div>
+      </div>
+
       <div class="col-md-6 col-lg-3">
         <div class="d-flex flex-column align-items-center justify-content-center bg-primary text-white p-4 rounded h-100 contact-card text-center">
           <i class="fa fa-envelope fa-2x mb-3"></i>
@@ -465,22 +440,24 @@ Phone: ${phone}`;
         </div>
       </div>
 
-      <!-- Phone -->
       <div class="col-md-6 col-lg-3">
         <div class="d-flex flex-column align-items-center justify-content-center bg-primary text-white p-4 rounded h-100 contact-card text-center">
           <i class="fa fa-phone-alt fa-2x mb-3"></i>
           <h5 class="mb-2">Call Us</h5>
-          <p class="mb-0">+91 63799 06509</p>
+          <p class="mb-0">
+            <a href="tel:+916379906509" class="text-white" style="text-decoration: none;">+91 63799 06509</a>
+          </p>
         </div>
       </div>
 
-      <!-- WhatsApp -->
       <div class="col-md-6 col-lg-3">
-        <div class="d-flex flex-column align-items-center justify-content-center bg-success text-white p-4 rounded h-100 contact-card text-center">
-          <i class="fa fa-whatsapp fa-2x mb-3"></i>
-          <h5 class="mb-2">WhatsApp</h5>
-          <p class="mb-0">Chat with Us</p>
-        </div>
+        <a href="https://wa.me/916379906509" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+          <div class="d-flex flex-column align-items-center justify-content-center bg-success text-white p-4 rounded h-100 contact-card text-center">
+            <i class="fa fa-whatsapp fa-2x mb-3"></i>
+            <h5 class="mb-2">WhatsApp</h5>
+            <p class="mb-0">Chat with Us</p>
+          </div>
+        </a>
       </div>
 
     </div>
@@ -492,17 +469,12 @@ Phone: ${phone}`;
   &copy; 2025 XPRESS WASH. All rights reserved.
 </footer>
 
-<!-- Floating WhatsApp Button>
-<a href="https://wa.me/916379906509" target="_blank" id="whatsapp-float" aria-label="Chat on WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a -->
-
 <!-- Back to Top Button -->
 <button id="back-to-top" aria-label="Back to top">
   <i class="fas fa-chevron-up"></i>
 </button>
 
-<!-- Bootstrap JS -->
+<!-- Bootstrap and dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -520,7 +492,6 @@ Phone: ${phone}`;
 
   // Show Back to Top button when scrolled down
   const backToTopBtn = document.getElementById('back-to-top');
-
   window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
       backToTopBtn.style.display = 'block';
@@ -528,10 +499,27 @@ Phone: ${phone}`;
       backToTopBtn.style.display = 'none';
     }
   });
-
-  // Smooth scroll to top
   backToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // WhatsApp form submit with URL encoding
+  document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("pickupForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let name = document.getElementById("name").value.trim();
+      let address = document.getElementById("address").value.trim();
+      let phone = document.getElementById("phone").value.trim();
+      if (!name || !address || !phone) {
+        alert("Please fill out all fields.");
+        return;
+      }
+      let whatsappNumber = "916379906509";
+      let message = `Hello, I want PickUp & Drop Service.\nName: ${name}\nAddress: ${address}\nPhone: ${phone}`;
+      let encodedMessage = encodeURIComponent(message);
+      let url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+      window.open(url, "_blank");
+    });
   });
 </script>
 </body>
