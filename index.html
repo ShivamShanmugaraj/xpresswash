@@ -11,6 +11,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Black+Ops+One&display=swap" rel="stylesheet" />
   <style>
+    /* Typography and colors */
     .xpress-title {
       font-family: 'Black Ops One', sans-serif !important;
       text-transform: uppercase;
@@ -21,10 +22,10 @@
       font-weight: 700;
       text-align: center;
       margin: 0;
-      font-size: 7rem;
+      font-size: 6rem; /* Reduced for mobile devices */
     }
     .xpress-subtitle {
-      font-family:  Arial, sans-serif !important;
+      font-family: Arial, sans-serif !important;
       text-transform: uppercase;
       letter-spacing: 4px;
       background: linear-gradient(to bottom, #c6efff, #53a8d5);
@@ -33,20 +34,20 @@
       font-weight: 700;
       text-align: center;
       margin: 0;
-      font-size: 1.5rem;
-      font-weight: 400;
-      letter-spacing: 12px;
+      font-size: 1.2rem; /* Adjusted */
+      letter-spacing: 8px;
       margin-top: -2px;
       -webkit-text-fill-color: #8cd4f7;
       background: none;
     }
+
     body::before {
       content: "";
       position: fixed;
       top: 50%;
       left: 50%;
-      width: 600px;
-      height: 600px;
+      width: 400px; /* Reduced for mobile */
+      height: 400px; /* Reduced for mobile */
       transform: translate(-50%, -50%);
       background: url('img/logo.jpeg') no-repeat center center;
       background-size: contain;
@@ -63,7 +64,7 @@
       padding: 0;
     }
     .navbar {
-      background-color: #031635;
+      background-color: #0A1622;
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
     }
@@ -71,7 +72,7 @@
       gap: 15px;
     }
     .navbar-brand img {
-      height: 80px;
+      height: 150px; /* Slightly smaller for mobile */
       width: auto;
       display: block;
     }
@@ -80,22 +81,20 @@
       cursor: pointer;
     }
     .section {
-      padding: 60px 20px;
+      padding: 40px 15px; /* Adjusted padding for smaller screens */
     }
     .footer {
       background-color: #031635;
       color: white;
       padding: 20px;
       text-align: center;
-    }
-    .a:hover {
-      color: #cceeff;
+      font-size: 0.9rem;
     }
     /* Contact Us Section */
     #contact {
       background-color: #031635;
       color: white;
-      padding: 60px 0;
+      padding: 60px 15px;
     }
     #contact .bg-primary {
       background-color: #05386b !important;
@@ -107,53 +106,52 @@
       min-width: 40px;
       text-align: center;
     }
-    /* Floating WhatsApp Button */
-    #whatsapp-float {
+    /* Floating PickUp & Drop Button */
+    #pickup-floating-btn {
       position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background-color: #25d366;
-      color: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 28px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-      z-index: 1000;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1050;
+      border-radius: 50px;
+      padding: 12px 25px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      font-weight: 600;
+      background: white;
+      color: #031635;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    #whatsapp-float:hover {
-      background-color: #1ebe57;
-      text-decoration: none;
-      color: white;
-    }
-    /* Back to Top Button */
-    #back-to-top {
-      position: fixed;
-      bottom: 95px;
-      right: 25px;
-      display: none;
-      background-color: #031635;
-      color: white;
       border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      font-size: 24px;
-      cursor: pointer;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
       transition: background-color 0.3s ease;
     }
-    #back-to-top:hover {
-      background-color: #05386b;
+    #pickup-floating-btn:hover {
+      background-color: #f8f9fa;
+      color: #031635;
     }
     /* Responsive fixes */
     @media (max-width: 767.98px) {
+      .xpress-title {
+        font-size: 3rem;
+        letter-spacing: 3px;
+      }
+      .xpress-subtitle {
+        font-size: 1rem;
+        letter-spacing: 6px;
+      }
+      body::before {
+        width: 250px;
+        height: 250px;
+      }
+      .navbar-brand img {
+        height: 50px;
+      }
+      .section {
+        padding: 30px 10px;
+      }
+      .service-box {
+        height: auto;
+      }
+      .service-title-top {
+        font-size: 1.2rem;
+      }
       #contact .d-flex.justify-content-center {
         flex-direction: column !important;
       }
@@ -162,8 +160,13 @@
         max-width: 100%;
         margin-bottom: 20px;
       }
+      /* Reduce footer padding for small devices */
+      .footer {
+        padding: 10px;
+        font-size: 0.8rem;
+      }
     }
-    /* === Fixed height for service boxes === */
+    /* Services box styling */
     .service-box {
       height: 320px;
       display: flex;
@@ -171,20 +174,24 @@
       justify-content: center;
       border-radius: 0.25rem;
       padding: 1.5rem !important;
+      transition: box-shadow 0.3s ease;
+    }
+    .service-box:hover {
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     .washing-bg {
       background: url('img/washing.jpeg') no-repeat center center/cover;
-      color: blue;
+      color: #fff;
       position: relative;
     }
     .folding-bg {
       background: url('img/folding.jpeg') no-repeat center center/cover;
-      color: blue;
+      color: #fff;
       position: relative;
     }
     .ironing-bg {
       background: url('img/ironing.jpg') no-repeat center center/cover;
-      color: blue;
+      color: #fff;
       position: relative;
     }
     .service-title-top {
@@ -220,34 +227,14 @@
       transform: translateY(-5px);
       box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
     }
-    /* Floating PickUp & Drop Button */
-    #pickup-floating-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1050;
-      border-radius: 50px;
-      padding: 12px 25px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-      font-weight: 600;
-      background: white;
-      color: #031635;
-      cursor: pointer;
-      border: none;
-      transition: background-color 0.3s ease;
-    }
-    #pickup-floating-btn:hover {
-      background-color: #f8f9fa;
-      color: #031635;
-    }
   </style>
 </head>
 <body>
 
 <!-- Navbar: logo and name -->
-<nav class="navbar navbar-dark" style="background-color: #031635; padding: 0.5rem 1rem;">
+<nav class="navbar navbar-dark" style="background-color: #0A1622; padding: 0.5rem 1rem;">
   <a class="navbar-brand d-flex align-items-center" href="#" style="gap: 15px;">
-    <img src="img/logo.jpeg" alt="XPRESS WASH Logo" style="height: 250px; width: auto;" />
+    <img src="img/logo1.jpeg" alt="XPRESS WASH Logo" />
     <div class="d-flex flex-column justify-content-center">
       <h3 class="xpress-title mb-0">XPRESS WASH</h3>
       <h6 class="xpress-subtitle mb-0">WASH DRY FOLD</h6>
@@ -333,7 +320,7 @@
   </div>
 </div>
 
-<!-- Services Start -->
+<!-- Services Section -->
 <div class="container-fluid pt-5 pb-3 section" id="services">
   <div class="container">
     <h3 class="display-5 text-center text-uppercase mb-5 text-white">Our Services</h3>
@@ -341,28 +328,28 @@
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="text-center service-box p-4 shadow rounded washing-bg position-relative">
           <h6 class="service-title-top">Washing</h6>
-          <!--p class="text-black mt-4">Professional washing services that gently clean your clothes with premium detergents.</p-->
+          <!-- p class="text-white mt-4">Professional washing services that gently clean your clothes with premium detergents.</p-->
         </div>
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="text-center service-box p-4 shadow rounded folding-bg position-relative">
           <h5 class="service-title-top">Drying & Folding</h5>
-          <!--p class="text-black mt-4">Efficient drying and expert folding to keep your garments fresh, neat, and wrinkle-free.</p-->
+          <!-- p class="text-white mt-4">Efficient drying and expert folding to keep your garments fresh, neat, and wrinkle-free.</p-->
         </div>
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="text-center service-box p-4 shadow rounded ironing-bg position-relative">
           <h5 class="service-title-top">Ironing</h5>
-          <!--p class="text-black mt-4">Professional ironing to ensure your clothes look crisp and polished for any occasion.</p-->
+          <!-- p class="text-white mt-4">Professional ironing to ensure your clothes look crisp and polished for any occasion.</p-->
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- About Start -->
+<!-- About Section -->
 <div class="container-fluid py-5 section" id="about">
   <div class="container pt-0 pt-lg-4">
     <h5 class="display-5 text-center text-uppercase mb-2 text-white">Learn About Us</h5>
@@ -372,7 +359,9 @@
         <img class="img-fluid rounded" src="img/about.jpg" alt="About XPRESS WASH" />
       </div>
       <div class="col-lg-8 mt-2 mt-lg-0 pl-lg-5">
-        <h5 class="font-weight-medium text-white mb-4">Experience the convenience of clean, fresh laundry—professionally handled with care.</h5>
+        <h5 class="font-weight-medium text-white mb-4">
+          Experience the convenience of clean, fresh laundry—professionally handled with care.
+        </h5>
         <p class="mb-2 text-white">
           At XPRESS WASH, we believe in delivering top-quality laundry services that save you time and effort. From washing and drying to expert folding, we take care of your clothes like our own.
         </p>
@@ -410,12 +399,11 @@
   </div>
 </div>
 
-<!-- Contact Us Section -->
+<!-- Contact Section -->
 <div class="container-fluid py-5" id="contact" style="background:#031635;">
   <div class="container">
     <h4 class="display-5 text-center text-uppercase mb-5 text-white">Contact Us</h4>
     <div class="row gy-4 gx-4">
-
       <div class="col-md-6 col-lg-3">
         <div class="d-flex flex-column align-items-center justify-content-center bg-primary text-white p-4 rounded h-100 contact-card text-center">
           <i class="fa fa-map-marker-alt fa-2x mb-3"></i>
@@ -427,19 +415,15 @@
           </p>
         </div>
       </div>
-
       <div class="col-md-6 col-lg-3">
         <div class="d-flex flex-column align-items-center justify-content-center bg-primary text-white p-4 rounded h-100 contact-card text-center">
           <i class="fa fa-envelope fa-2x mb-3"></i>
           <h5 class="mb-2">Email Us</h5>
           <p class="mb-0">
-            <a href="mailto:express2laundry@gmail.com" class="text-white text-decoration-none">
-              express2laundry@gmail.com
-            </a>
+            <a href="mailto:express2laundry@gmail.com" class="text-white text-decoration-none">express2laundry@gmail.com</a>
           </p>
         </div>
       </div>
-
       <div class="col-md-6 col-lg-3">
         <div class="d-flex flex-column align-items-center justify-content-center bg-primary text-white p-4 rounded h-100 contact-card text-center">
           <i class="fa fa-phone-alt fa-2x mb-3"></i>
@@ -449,7 +433,6 @@
           </p>
         </div>
       </div>
-
       <div class="col-md-6 col-lg-3">
         <a href="https://wa.me/916379906509" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
           <div class="d-flex flex-column align-items-center justify-content-center bg-success text-white p-4 rounded h-100 contact-card text-center">
@@ -459,7 +442,6 @@
           </div>
         </a>
       </div>
-
     </div>
   </div>
 </div>
@@ -484,20 +466,14 @@
     link.addEventListener('click', e => {
       e.preventDefault();
       const target = document.querySelector(link.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
   });
 
   // Show Back to Top button when scrolled down
   const backToTopBtn = document.getElementById('back-to-top');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      backToTopBtn.style.display = 'block';
-    } else {
-      backToTopBtn.style.display = 'none';
-    }
+    backToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
   });
   backToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -522,5 +498,6 @@
     });
   });
 </script>
+
 </body>
 </html>
