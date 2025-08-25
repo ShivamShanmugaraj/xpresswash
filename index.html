@@ -10,8 +10,8 @@
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Black+Ops+One&display=swap" rel="stylesheet" />
+
   <style>
-    /* Typography and colors */
     .xpress-title {
       font-family: 'Black Ops One', sans-serif !important;
       text-transform: uppercase;
@@ -22,32 +22,26 @@
       font-weight: 700;
       text-align: center;
       margin: 0;
-      font-size: 6rem; /* Reduced for mobile devices */
+      font-size: 4.5rem;
     }
     .xpress-subtitle {
       font-family: Arial, sans-serif !important;
       text-transform: uppercase;
-      letter-spacing: 4px;
-      background: linear-gradient(to bottom, #c6efff, #53a8d5);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      letter-spacing: 8px;
       font-weight: 700;
       text-align: center;
       margin: 0;
-      font-size: 1.2rem; /* Adjusted */
-      letter-spacing: 8px;
+      font-size: 1.2rem;
       margin-top: -2px;
       -webkit-text-fill-color: #8cd4f7;
-      background: none;
     }
-
     body::before {
       content: "";
       position: fixed;
       top: 50%;
       left: 50%;
-      width: 400px; /* Reduced for mobile */
-      height: 400px; /* Reduced for mobile */
+      width: 400px;
+      height: 400px;
       transform: translate(-50%, -50%);
       background: url('img/logo.jpeg') no-repeat center center;
       background-size: contain;
@@ -63,26 +57,28 @@
       margin: 0;
       padding: 0;
     }
+
+    /* Navbar adjustments */
     .navbar {
-      background-color: #0A1622;
+      background-color: #031635;
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
     }
-    .navbar-brand {
-      gap: 15px;
-    }
     .navbar-brand img {
-      height: 150px; /* Slightly smaller for mobile */
+      max-height: 150px;
       width: auto;
       display: block;
     }
+
     .nav-link {
       color: white !important;
       cursor: pointer;
     }
+
     .section {
-      padding: 40px 15px; /* Adjusted padding for smaller screens */
+      padding: 40px 15px;
     }
+
     .footer {
       background-color: #031635;
       color: white;
@@ -90,31 +86,26 @@
       text-align: center;
       font-size: 0.9rem;
     }
+
     /* Contact Us Section */
     #contact {
       background-color: #031635;
       color: white;
       padding: 60px 15px;
     }
-    #contact .bg-primary {
-      background-color: #05386b !important;
-    }
-    #contact .bg-success {
-      background-color: #25d366 !important;
-    }
-    #contact .fa-2x {
-      min-width: 40px;
-      text-align: center;
-    }
+    #contact .bg-primary { background-color: #05386b !important; }
+    #contact .bg-success { background-color: #25d366 !important; }
+    #contact .fa-2x { min-width: 40px; text-align: center; }
+
     /* Floating PickUp & Drop Button */
     #pickup-floating-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      z-index: 1050;
+      z-index: 1500;
       border-radius: 50px;
       padding: 12px 25px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
       font-weight: 600;
       background: white;
       color: #031635;
@@ -126,46 +117,66 @@
       background-color: #f8f9fa;
       color: #031635;
     }
-    /* Responsive fixes */
-    @media (max-width: 767.98px) {
-      .xpress-title {
-        font-size: 3rem;
-        letter-spacing: 3px;
-      }
-      .xpress-subtitle {
-        font-size: 1rem;
-        letter-spacing: 6px;
-      }
-      body::before {
-        width: 250px;
-        height: 250px;
-      }
-      .navbar-brand img {
-        height: 50px;
-      }
-      .section {
-        padding: 30px 10px;
-      }
-      .service-box {
-        height: auto;
-      }
+
+    /* Services Title Overlay only on desktops */
+    @media(min-width: 768px) {
       .service-title-top {
-        font-size: 1.2rem;
+        position: absolute;
+        top: -35px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin: 0;
+        padding: 0.2em 0;
+        border-radius: 0.2em;
+        z-index: 2;
+        letter-spacing: .5px;
+        background: #031635;
       }
-      #contact .d-flex.justify-content-center {
-        flex-direction: column !important;
+    }
+
+    /* Mobile-specific fixes */
+    @media(max-width: 767.98px) {
+      .xpress-title { font-size: 3rem; letter-spacing: 3px; }
+      .xpress-subtitle { font-size: 1rem; letter-spacing: 6px; }
+      body::before { width: 250px; height: 250px; }
+      .section { padding: 30px 10px; }
+      .service-box { height: auto; margin-bottom: 2rem; }
+      .service-title-top {
+        position: static !important;
+        transform: none !important;
+        width: 100% !important;
+        font-size: 1.2rem !important;
+        margin-top: 0.5rem !important;
+        padding: 0 !important;
+        background: none !important;
+        color: white !important;
       }
+      #contact .d-flex.justify-content-center { flex-direction: column !important; }
       #contact .col-md-6,
       #contact .col-lg-3 {
         max-width: 100%;
         margin-bottom: 20px;
       }
-      /* Reduce footer padding for small devices */
-      .footer {
-        padding: 10px;
-        font-size: 0.8rem;
+      .footer { padding: 10px; font-size: 0.8rem; }
+      #pickup-floating-btn {
+        bottom: 60px;
+        right: 15px;
+        padding: 10px 20px;
+        font-size: 14px;
       }
+      /* Reduce navbar logo further */
+      .navbar-brand img { max-height: 50px; }
     }
+    @media(max-width: 400px) {
+      .xpress-title { font-size: 2.2rem; }
+      .xpress-subtitle { font-size: 0.9rem; letter-spacing: 3px; }
+    }
+
     /* Services box styling */
     .service-box {
       height: 320px;
@@ -175,57 +186,44 @@
       border-radius: 0.25rem;
       padding: 1.5rem !important;
       transition: box-shadow 0.3s ease;
-    }
-    .service-box:hover {
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    .washing-bg {
-      background: url('img/washing.jpeg') no-repeat center center/cover;
-      color: #fff;
       position: relative;
+	  background: #ffffff
     }
-    .folding-bg {
-      background: url('img/folding.jpeg') no-repeat center center/cover;
-      color: #fff;
-      position: relative;
-    }
-    .ironing-bg {
-      background: url('img/ironing.jpg') no-repeat center center/cover;
-      color: #fff;
-      position: relative;
-    }
-    .service-title-top {
-      position: absolute;
-      top: -35px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      text-align: center;
-      color: white;
-      font-weight: bold;
-      font-size: 1.5rem;
-      margin: 0;
-      padding: 0.2em 0;
-      border-radius: 0.2em;
-      z-index: 2;
-      letter-spacing: .5px;
-    }
+    .service-box:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+    .washing-bg { background: url('img/washing.jpeg') no-repeat center center/cover; color: #031635; }
+    .folding-bg { background: url('img/folding.jpeg') no-repeat center center/cover; color: #031635; }
+    .ironing-bg { background: url('img/ironing.jpg') no-repeat center center/cover; color: #031635; }
+
     .pickup-btn {
       background: #ffffff !important;
       color: #031635 !important;
       font-weight: 600;
       border-radius: 8px;
     }
-    .pickup-btn:hover {
-      background: #f8f9fa !important;
-      color: #031635 !important;
-    }
-    .contact-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+    .pickup-btn:hover { background: #f8f9fa !important; color: #031635 !important; }
+
+    .contact-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .contact-card:hover {
       transform: translateY(-5px);
       box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Back to top button styling */
+    #back-to-top {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      background: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      display: none;
+      z-index: 1500;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    #back-to-top i {
+      color: #031635;
+      font-size: 18px;
     }
   </style>
 </head>
@@ -233,8 +231,8 @@
 
 <!-- Navbar: logo and name -->
 <nav class="navbar navbar-dark" style="background-color: #0A1622; padding: 0.5rem 1rem;">
-  <a class="navbar-brand d-flex align-items-center" href="#" style="gap: 15px;">
-    <img src="img/logo1.jpeg" alt="XPRESS WASH Logo" />
+  <a class="navbar-brand d-flex align-items-center" href="#" style="gap: 25px;">
+    <img src="img/logo1.jpeg" alt="XPRESS WASH Logo"   />
     <div class="d-flex flex-column justify-content-center">
       <h3 class="xpress-title mb-0">XPRESS WASH</h3>
       <h6 class="xpress-subtitle mb-0">WASH DRY FOLD</h6>
@@ -277,23 +275,12 @@
 </button>
 
 <!-- PickUp & Drop Modal -->
-<div
-  class="modal fade"
-  id="pickupDropModal"
-  tabindex="-1"
-  aria-labelledby="pickupDropLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="pickupDropModal" tabindex="-1" aria-labelledby="pickupDropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content bg-white">
       <div class="modal-header">
         <h5 class="modal-title" id="pickupDropLabel">PickUp & Drop Form</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -325,25 +312,20 @@
   <div class="container">
     <h3 class="display-5 text-center text-uppercase mb-5 text-white">Our Services</h3>
     <div class="row">
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="text-center service-box p-4 shadow rounded washing-bg position-relative">
-          <h6 class="service-title-top">Washing</h6>
-          <!-- p class="text-white mt-4">Professional washing services that gently clean your clothes with premium detergents.</p-->
-        </div>
+      <div class="col-lg-4 col-md-6 mb-4 d-flex flex-column align-items-center">
+        <h6 class="service-title-top">Washing</h6>
+        <img src="img/washing.jpeg" alt="Washing" class="img-fluid rounded shadow" style=" height: 300px;" />
+        <p class="text-white mt-3 text-center">Professional washing that gently cleans your clothes with premium detergents.</p>
       </div>
-
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="text-center service-box p-4 shadow rounded folding-bg position-relative">
-          <h5 class="service-title-top">Drying & Folding</h5>
-          <!-- p class="text-white mt-4">Efficient drying and expert folding to keep your garments fresh, neat, and wrinkle-free.</p-->
-        </div>
+      <div class="col-lg-4 col-md-6 mb-4 d-flex flex-column align-items-center">
+        <h6 class="service-title-top">Drying & Folding</h6>
+        <img src="img/folding.jpeg" alt="Drying & Folding" class="img-fluid rounded shadow" style=" height: 300px;" />
+        <p class="text-white mt-3 text-center">Efficient drying and expert folding ensures fresh, neat, wrinkle-free clothes.</p>
       </div>
-
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="text-center service-box p-4 shadow rounded ironing-bg position-relative">
-          <h5 class="service-title-top">Ironing</h5>
-          <!-- p class="text-white mt-4">Professional ironing to ensure your clothes look crisp and polished for any occasion.</p-->
-        </div>
+      <div class="col-lg-4 col-md-6 mb-4 d-flex flex-column align-items-center">
+        <h6 class="service-title-top">Ironing</h6>
+        <img src="img/ironing.jpg" alt="Ironing" class="img-fluid rounded shadow" style=" height: 300px;" />
+        <p class="text-white mt-3 text-center">Sharp ironing services that make your clothes crisp and polished.</p>
       </div>
     </div>
   </div>
@@ -362,12 +344,8 @@
         <h5 class="font-weight-medium text-white mb-4">
           Experience the convenience of clean, fresh laundry—professionally handled with care.
         </h5>
-        <p class="mb-2 text-white">
-          At XPRESS WASH, we believe in delivering top-quality laundry services that save you time and effort. From washing and drying to expert folding, we take care of your clothes like our own.
-        </p>
-        <p class="mb-2 text-white">
-          Whether it’s your everyday wear or delicate fabrics, our team ensures the best care using eco-friendly detergents and modern equipment. Clean clothes, happy life—every time.
-        </p>
+        <p class="mb-2 text-white">At XPRESS WASH, we deliver top-quality laundry services saving you time and effort, with care in washing, drying, and folding.</p>
+        <p class="mb-2 text-white">From everyday wear to delicate fabrics, our eco-friendly practices ensure clean clothes and happy lives.</p>
         <div class="row">
           <div class="col-sm-6 pt-3">
             <div class="d-flex align-items-center">
@@ -408,29 +386,21 @@
         <div class="d-flex flex-column align-items-center justify-content-center bg-primary text-white p-4 rounded h-100 contact-card text-center">
           <i class="fa fa-map-marker-alt fa-2x mb-3"></i>
           <h5 class="mb-2">Our Location</h5>
-          <p class="mb-0">
-            <a href="https://maps.app.goo.gl/gUQyHYoPBKKNcqXbA" target="_blank" style="color: #fff; text-decoration: underline;">
-              Namakkal, TamilNadu
-            </a>
-          </p>
+          <p class="mb-0"><a href="https://maps.app.goo.gl/gUQyHYoPBKKNcqXbA" target="_blank" style="color: #fff; text-decoration: underline;">Namakkal, TamilNadu</a></p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="d-flex flex-column align-items-center justify-content-center bg-primary text-white p-4 rounded h-100 contact-card text-center">
           <i class="fa fa-envelope fa-2x mb-3"></i>
           <h5 class="mb-2">Email Us</h5>
-          <p class="mb-0">
-            <a href="mailto:express2laundry@gmail.com" class="text-white text-decoration-none">express2laundry@gmail.com</a>
-          </p>
+          <p class="mb-0"><a href="mailto:express2laundry@gmail.com" class="text-white text-decoration-none">express2laundry@gmail.com</a></p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="d-flex flex-column align-items-center justify-content-center bg-primary text-white p-4 rounded h-100 contact-card text-center">
           <i class="fa fa-phone-alt fa-2x mb-3"></i>
           <h5 class="mb-2">Call Us</h5>
-          <p class="mb-0">
-            <a href="tel:+916379906509" class="text-white" style="text-decoration: none;">+91 63799 06509</a>
-          </p>
+          <p class="mb-0"><a href="tel:+916379906509" class="text-white" style="text-decoration: none;">+91 63799 06509</a></p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
@@ -447,14 +417,10 @@
 </div>
 
 <!-- Footer -->
-<footer class="footer">
-  &copy; 2025 XPRESS WASH. All rights reserved.
-</footer>
+<footer class="footer">&copy; 2025 XPRESS WASH. All rights reserved.</footer>
 
 <!-- Back to Top Button -->
-<button id="back-to-top" aria-label="Back to top">
-  <i class="fas fa-chevron-up"></i>
-</button>
+<button id="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
 
 <!-- Bootstrap and dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
