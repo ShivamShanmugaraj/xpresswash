@@ -9,9 +9,32 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
   <style>
-  
+ .xpress-title, .xpress-subtitle {
+  font-family: 'Russo One', Arial, sans-serif !important;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  background: linear-gradient(to bottom, #c6efff, #53a8d5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+}
+
+.xpress-title {
+  font-size: 3rem;
+}
+
+.xpress-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 12px;
+  margin-top: -2px;
+  -webkit-text-fill-color: #8cd4f7;  /* More subtle blue; or remove for gradient */
+  background: none; /* Use plain blue text if preferred */
+} 
  body::before {
   content: "";
   position: fixed;
@@ -162,6 +185,56 @@
       border-radius: 0.25rem;
       padding: 1.5rem !important; /* override inline padding */
     }
+.washing-bg {
+  background: url('img/washing.jpeg') no-repeat center center/cover;
+  color: blue; /* Already in your code */
+  position: relative; /* Needed for absolute child */
+}
+.folding-bg {
+  background: url('img/folding.jpeg') no-repeat center center/cover;
+  color: blue; /* Already in your code */
+  position: relative; /* Needed for absolute child */
+}
+.ironing-bg {
+  background: url('img/ironing.jpg') no-repeat center center/cover;
+  color: blue; /* Already in your code */
+  position: relative; /* Needed for absolute child */
+}
+.service-title-top {
+  position: absolute;
+  top: -35px;       /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;      /*  Makes it readable on all screens */
+  text-align: center;
+  color:white ;  /* #0b254bChoose a color with good contrast */
+  font-weight: bold;
+  font-size: 1.5rem;
+  /*background: rgba(255,255,255,0.25);  Optional: slightly improves readability */
+  margin: 0;
+  padding: 0.2em 0;
+  border-radius: 0.2em;
+  z-index: 2;
+  letter-spacing: .5px;
+}
+.pickup-btn {
+  background: #ffffff !important;   /* white background */
+  color: #031635 !important;        /* dark blue text */
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.pickup-btn:hover {
+  background: #f8f9fa !important;   /* light gray on hover */
+  color: #031635 !important;        /* keep dark blue text */
+}
+.contact-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+  }
   </style>
 </head>
 <body>
@@ -176,30 +249,31 @@
     class="text-center px-2 py-1"
     style="background-color: #031635; height: 80px; display: flex; flex-direction: column; justify-content: center;"
   >
-    <h3
-      style="
-        font-size: 1.5rem;
-        font-weight: 600;
-        background: linear-gradient(to bottom, #c6efff, #53a8d5);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        letter-spacing: 2px;
-        margin: 0;
-      "
-    >
-      XPRESS WASH
-    </h3>
-    <h6 style="color: #9ad5f3; font-size: 9px; letter-spacing: 8px; margin: 3px 0 0;">
-      WASH DRY FOLD
-    </h6>
+    <h3 class="xpress-title">XPRESS WASH</h3>
+    <h6 class="xpress-subtitle">WASH DRY FOLD</h6>
   </div>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <ul class="navbar-nav">
+<li class="nav-item">
+  <a class="btn px-3 pickup-btn"
+     href="#"
+     data-toggle="modal"
+     data-target="#pickupDropModal">
+     🚖 PickUp & Drop
+  </a>
+</li>
+
+
       <li class="nav-item">
         <a class="nav-link" href="#services">Services</a>
       </li>
@@ -213,35 +287,104 @@
   </div>
 </nav>
 
+<!-- PickUp & Drop Modal -->
+<div
+  class="modal fade"
+  id="pickupDropModal"
+  tabindex="-1"
+  aria-labelledby="pickupDropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content bg-white"> <!-- White background added -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="pickupDropLabel">PickUp & Drop Form</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="pickupForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" required />
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <textarea class="form-control" id="address" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" required />
+          </div>
+          <button type="submit" class="btn btn-success w-100">
+            Submit via WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Script -->
+<script>
+  document.getElementById("pickupForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let address = document.getElementById("address").value;
+    let phone = document.getElementById("phone").value;
+
+    // Your WhatsApp number with country code (without + or spaces)
+    let whatsappNumber = "916379906509";
+
+    let message = `Hello, I want PickUp & Drop Service.%0A
+Name: ${name}%0A
+Address: ${address}%0A
+Phone: ${phone}`;
+
+    let url = `https://wa.me/${916379906509}?text=${message}`;
+
+    window.open(url, "_blank");
+  });
+</script>
+
+
 <!-- Services Start -->
 <div class="container-fluid pt-5 pb-3 section" id="services">
   <div class="container">
     <!--h5 class="text-secondary text-uppercase text-center font-weight-medium mb-3">Our Services</h5-->
-    <h5 class="display-5 text-center text-uppercase mb-2 text-white">Our Services</h5>
-    <h2 class="display-4 text-center mb-5 text-white">What We Offer</h2>
+    <h3 class="display-5 text-center text-uppercase mb-5 text-white">Our Services</h3>
+    <!--h2 class="display-4 text-center mb-5 text-white">What We Offer</h2-->
 
     <div class="row">
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="bg-light text-center service-box">
-          <i class="fas fa-tshirt fa-3x text-primary mb-3"></i>
-          <h4 class="mb-3">Washing & Folding</h4>
-          <p>Professional washing and folding services using quality detergents and care for your clothes.</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="bg-light text-center service-box">
-          <i class="fas fa-fire fa-3x text-primary mb-3"></i>
-          <h4 class="mb-3">Ironing Services</h4>
-          <p>Perfectly pressed clothes with steam or dry iron depending on fabric type.</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="bg-light text-center service-box">
-          <i class="fas fa-water fa-3x text-primary mb-3"></i>
-          <h4 class="mb-3">Dry Cleaning</h4>
-          <p>Gentle dry cleaning for delicate garments with fabric-safe chemicals.</p>
-        </div>
-      </div>
+<div class="col-lg-4 col-md-6 mb-4">
+  <div class="text-center service-box p-4 shadow rounded washing-bg position-relative">
+    <h6 class="service-title-top">Washing</h6>
+    <!-- More content here if you wish -->
+  </div>
+</div>
+
+<div class="col-lg-4 col-md-6 mb-4">
+  <div class="text-center service-box p-4 shadow rounded folding-bg position-relative">
+    <h5 class="service-title-top">Drying & Folding</h5>
+    <!-- More content here if you wish -->
+  </div>
+</div>
+
+<div class="col-lg-4 col-md-6 mb-4">
+  <div class="text-center service-box p-4 shadow rounded ironing-bg position-relative">
+    <h5 class="service-title-top">Ironing</h5>
+    <!-- More content here if you wish -->
+  </div>
+</div>
+
     </div>
   </div>
 </div>
@@ -295,41 +438,53 @@
 </div>
 
 <!-- Contact Us Section -->
-<div class="container-fluid" id="contact">
+<div class="container-fluid py-5" id="contact" style="background:#031635;">
   <div class="container">
-    <!-- <h5 class="text-uppercase text-center text-white mb-3">Get In Touch</h5> -->
     <h4 class="display-5 text-center text-uppercase mb-5 text-white">Contact Us</h4>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-3 d-flex align-items-center justify-content-center bg-primary text-white p-4 rounded">
-        <i class="fa fa-map-marker-alt fa-2x me-3"></i>
-        <div>
-          <h5 class="mb-1">Our Location</h5>
-          <p class="mb-0">Namakkal, TamilNadu</p>
+    <div class="row gy-4 gx-4"> <!-- gy = vertical gap, gx = horizontal gap -->
+      
+      <!-- Location -->
+<div class="d-flex flex-column align-items-center justify-content-center bg-primary text-white p-4 rounded h-100 contact-card text-center">
+  <i class="fa fa-map-marker-alt fa-2x mb-3"></i>
+  <h5 class="mb-2">Our Location</h5>
+  <p class="mb-0">
+    <a href="https://maps.app.goo.gl/gUQyHYoPBKKNcqXbA" target="_blank" style="color: #fff; text-decoration: underline;">
+      Namakkal, TamilNadu
+    </a>
+  </p>
+</div>
+
+      <!-- Email -->
+      <div class="col-md-6 col-lg-3">
+        <div class="d-flex flex-column align-items-center justify-content-center bg-primary text-white p-4 rounded h-100 contact-card text-center">
+          <i class="fa fa-envelope fa-2x mb-3"></i>
+          <h5 class="mb-2">Email Us</h5>
+          <p class="mb-0">
+            <a href="mailto:express2laundry@gmail.com" class="text-white text-decoration-none">
+              express2laundry@gmail.com
+            </a>
+          </p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3 d-flex align-items-center justify-content-center bg-primary text-white p-4 rounded">
-        <i class="fa fa-envelope fa-2x me-3"></i>
-        <div>
-          <h5 class="mb-1">Email Us</h5>
-          <p class="mb-0">expresslaundry@example.com</p>
+
+      <!-- Phone -->
+      <div class="col-md-6 col-lg-3">
+        <div class="d-flex flex-column align-items-center justify-content-center bg-primary text-white p-4 rounded h-100 contact-card text-center">
+          <i class="fa fa-phone-alt fa-2x mb-3"></i>
+          <h5 class="mb-2">Call Us</h5>
+          <p class="mb-0">+91 63799 06509</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3 d-flex align-items-center justify-content-center bg-primary text-white p-4 rounded">
-        <i class="fa fa-phone-alt fa-2x me-3"></i>
-        <div>
-          <h5 class="mb-1">Call Us</h5>
-          <p class="mb-0">+916379906509</p>
+
+      <!-- WhatsApp -->
+      <div class="col-md-6 col-lg-3">
+        <div class="d-flex flex-column align-items-center justify-content-center bg-success text-white p-4 rounded h-100 contact-card text-center">
+          <i class="fa fa-whatsapp fa-2x mb-3"></i>
+          <h5 class="mb-2">WhatsApp</h5>
+          <p class="mb-0">Chat with Us</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3 d-flex align-items-center justify-content-center bg-success text-white p-4 rounded">
-        <i class="fab fa-whatsapp fa-2x me-3"></i>
-        <div>
-          <h5 class="mb-1">Chat on WhatsApp</h5>
-          <a href="https://wa.me/916379906509" class="text-white text-decoration-underline" target="_blank"
-            >+916379906509</a
-          >
-        </div>
-      </div>
+
     </div>
   </div>
 </div>
@@ -339,10 +494,10 @@
   &copy; 2025 XPRESS WASH. All rights reserved.
 </footer>
 
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/919894717585" target="_blank" id="whatsapp-float" aria-label="Chat on WhatsApp">
+<!-- Floating WhatsApp Button>
+<a href="https://wa.me/916379906509" target="_blank" id="whatsapp-float" aria-label="Chat on WhatsApp">
   <i class="fab fa-whatsapp"></i>
-</a>
+</a -->
 
 <!-- Back to Top Button -->
 <button id="back-to-top" aria-label="Back to top">
