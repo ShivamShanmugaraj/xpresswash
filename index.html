@@ -10,197 +10,217 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Black+Ops+One&display=swap" rel="stylesheet" />
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      scroll-behavior: smooth;
-      background-color: #0A1622;
-      margin: 0;
-      padding: 0;
-    }
 
-    /* Body background logo watermark */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 600px;
-      height: 600px;
-      transform: translate(-50%, -50%);
-      background: url('img/logo.jpeg') no-repeat center center;
-      background-size: contain;
-      opacity: 0.05;
-      filter: blur(1px);
-      z-index: 0;
-      pointer-events: none;
-    }
+ <style>
+  /* Normalize for mobile text scaling */
+  html { -webkit-text-size-adjust: 100%; }
 
-    /* Title & Subtitle */
-    .xpress-title {
-      font-family: 'Black Ops One', sans-serif !important;
-      text-transform: uppercase;
-      letter-spacing: 17px;
-      font-weight: 700;
-      margin: 0;
-      background: linear-gradient(to bottom, #c6efff, #53a8d5);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 4.5rem;
-      text-align: center;
-    }
-    .xpress-subtitle {
-      font-family: Arial, sans-serif !important;
-      text-transform: uppercase;
-      letter-spacing: 14px;
-      font-weight: 700;
-      margin: 0;
-      margin-top: -2px;
-      -webkit-text-fill-color: #8cd4f7;
-      font-size: 1.2rem;
-      text-align: center;
-    }
+  body {
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+    background-color: #0A1622;
+    margin: 0;
+    padding: 0;
+  }
 
-    /* Navbar */
-    .navbar {
-      background-color: #0A1622;
-    }
+  /* Body background logo watermark (scaled for small screens) */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: min(600px, 85vw);
+    height: min(600px, 85vw);
+    transform: translate(-50%, -50%);
+    background: url('img/logo.jpeg') no-repeat center center;
+    background-size: contain;
+    opacity: 0.05;
+    filter: blur(1px);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Title & Subtitle — large but fluid for mobiles */
+  .xpress-title {
+    font-family: 'Black Ops One', sans-serif !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(to bottom, #c6efff, #53a8d5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Big by default, responsive on small viewports */
+    font-size: clamp(2.6rem, 8vw + 0.5rem, 5rem);
+    letter-spacing: clamp(2px, 0.9vw, 12px);
+
+    line-height: 1;
+    text-align: center;
+    overflow-wrap: anywhere;
+    -webkit-hyphens: none; hyphens: none;
+  }
+  .xpress-subtitle {
+    font-family: Arial, sans-serif !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0;
+    margin-top: -2px;
+    -webkit-text-fill-color: #8cd4f7;
+
+    font-size: clamp(0.9rem, 2.2vw + 0.4rem, 1.4rem);
+    letter-spacing: clamp(3px, 0.6vw, 10px);
+
+    text-align: center;
+  }
+
+  /* Navbar */
+  .navbar {
+    background-color: #0A1622;
+  }
+  /* Replace flex gap (iOS Safari compat) with margin on image */
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+  .navbar-brand img {
+    max-height: 300px;
+    width: auto;
+    margin-right: 2.5rem; /* stable spacing equivalent to gap */
+  }
+  .nav-link {
+    color: white !important;
+    cursor: pointer;
+  }
+
+  /* Sections */
+  .section {
+    padding: 40px 15px;
+  }
+  .footer {
+    background-color: #0A1622;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  /* Contact Us */
+  #contact {
+    background-color: #0A1622;
+    color: white;
+    padding: 60px 15px;
+  }
+  #contact .bg-primary { background-color: #05386b !important; }
+  #contact .bg-success { background-color: #25d366 !important; }
+  #contact .fa-2x { min-width: 40px; text-align: center; }
+
+  /* Floating PickUp Button — safe around iOS gesture areas */
+  #pickup-floating-btn {
+    position: fixed;
+    bottom: max(20px, env(safe-area-inset-bottom));
+    right: max(20px, env(safe-area-inset-right));
+    z-index: 1501;
+    border-radius: 50px;
+    padding: 12px 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    font-weight: 600;
+    background: white;
+    color: #0A1622;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  #pickup-floating-btn:hover {
+    background-color: #f8f9fa;
+    color: #0A1622;
+  }
+
+  /* Services */
+  .service-box {
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0.25rem;
+    padding: 1.5rem;
+    transition: box-shadow 0.3s ease;
+    position: relative;
+    background: #ffffff;
+  }
+  .service-box:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+
+  /* Make service images consistent across phones */
+  #services img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    max-height: 320px; /* optional cap */
+  }
+
+  .contact-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+  }
+
+  /* Back to Top Button */
+  #back-to-top {
+    position: fixed;
+    bottom: max(100px, calc(env(safe-area-inset-bottom) + 60px));
+    right: max(20px, env(safe-area-inset-right));
+    background: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    display: none;
+    z-index: 1500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  #back-to-top i {
+    color: #0A1622;
+    font-size: 18px;
+  }
+
+  /* Responsive */
+  @media (max-width: 767.98px) {
     .navbar-brand {
-      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 70px;
     }
     .navbar-brand img {
-      max-height: 300px;
-      width: auto;
+      margin-right: 0;
+      margin-bottom: 0.75rem;
     }
-    .nav-link {
+
+    body::before { width: 250px; height: 250px; }
+
+    .service-title-top {
+      position: static !important;
+      transform: none !important;
+      width: 100% !important;
+      font-size: 1.2rem !important;
+      margin-top: 0.5rem !important;
+      background: none !important;
       color: white !important;
-      cursor: pointer;
     }
 
-    /* Sections */
-    .section {
-      padding: 40px 15px;
+    #contact .d-flex.justify-content-center { flex-direction: column !important; }
+    #contact .col-md-6, #contact .col-lg-3 {
+      max-width: 100%;
+      margin-bottom: 20px;
     }
-    .footer {
-      background-color: #0A1622;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9rem;
-    }
+    .footer { padding: 10px; font-size: 0.8rem; }
+  }
 
-    /* Contact Us */
-    #contact {
-      background-color: #0A1622;
-      color: white;
-      padding: 60px 15px;
-    }
-    #contact .bg-primary { background-color: #05386b !important; }
-    #contact .bg-success { background-color: #25d366 !important; }
-    #contact .fa-2x { min-width: 40px; text-align: center; }
+  @media (max-width: 400px) {
+    .xpress-title { line-height: 1.05; }
+    .xpress-subtitle { letter-spacing: 3px; }
+  }
 
-    /* Floating PickUp Button */
-    #pickup-floating-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1501;
-      border-radius: 50px;
-      padding: 12px 25px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-      font-weight: 600;
-      background: white;
-      color: #0A1622;
-      border: none;
-      transition: background-color 0.3s ease;
-    }
-    #pickup-floating-btn:hover {
-      background-color: #f8f9fa;
-      color: #0A1622;
-    }
-
-    /* Services */
-    .service-box {
-      height: 320px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-radius: 0.25rem;
-      padding: 1.5rem;
-      transition: box-shadow 0.3s ease;
-      position: relative;
-      background: #ffffff;
-    }
-    .service-box:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-
-    .contact-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .contact-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
-    }
-
-    /* Back to Top Button */
-    #back-to-top {
-      position: fixed;
-      bottom: 100px;
-      right: 20px;
-      background: #fff;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 50%;
-      display: none;
-      z-index: 1500;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-    #back-to-top i {
-      color: #0A1622;
-      font-size: 18px;
-    }
-
-    /* Responsive */
-    @media(max-width: 767.98px) {
-      .xpress-title {
-        font-size: 3rem;
-        letter-spacing: 3px;
-        -webkit-text-fill-color: #c6efff;
-        background: none;
-      }
-      .xpress-subtitle {
-        font-size: 1rem;
-        letter-spacing: 6px;
-      }
-      body::before { width: 250px; height: 250px; }
-      .navbar-brand {
-        flex-direction: column;
-        gap: 0;
-      }
-      .navbar-brand img { max-height: 300px; }
-      .service-title-top {
-        position: static !important;
-        transform: none !important;
-        width: 100% !important;
-        font-size: 1.2rem !important;
-        margin-top: 0.5rem !important;
-        background: none !important;
-        color: white !important;
-      }
-      #contact .d-flex.justify-content-center { flex-direction: column !important; }
-      #contact .col-md-6, #contact .col-lg-3 {
-        max-width: 100%;
-        margin-bottom: 20px;
-      }
-      .footer { padding: 10px; font-size: 0.8rem; }
-    }
-    @media(max-width: 400px) {
-      .xpress-title { font-size: 2.2rem; }
-      .xpress-subtitle { font-size: 0.9rem; letter-spacing: 3px; }
-    }
-    .navbar-brand .d-flex { margin-top: 80px; }
-  </style>
+  .navbar-brand .d-flex { margin-top: 80px; }
+</style>
 </head>
 <body>
 
