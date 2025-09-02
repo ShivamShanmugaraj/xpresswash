@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>XPRESS WASH</title>
 
+  <!-- External Stylesheets -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Black+Ops+One&display=swap" rel="stylesheet" />
@@ -13,19 +14,19 @@
     body {
       font-family: Arial, sans-serif;
       scroll-behavior: smooth;
-      background-color: #031635;
+      background-color: #0A1622;
       margin: 0;
       padding: 0;
     }
 
-    /* Body background effect with logo */
+    /* Body background logo watermark */
     body::before {
       content: "";
       position: fixed;
       top: 50%;
       left: 50%;
-      width: 400px;
-      height: 400px;
+      width: 600px;
+      height: 600px;
       transform: translate(-50%, -50%);
       background: url('img/logo.jpeg') no-repeat center center;
       background-size: contain;
@@ -35,14 +36,13 @@
       pointer-events: none;
     }
 
-    /* Unified Title Styling */
+    /* Title & Subtitle */
     .xpress-title {
       font-family: 'Black Ops One', sans-serif !important;
       text-transform: uppercase;
-      letter-spacing: 4px;
+      letter-spacing: 17px;
       font-weight: 700;
       margin: 0;
-      /* Default styles for desktop */
       background: linear-gradient(to bottom, #c6efff, #53a8d5);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -52,7 +52,7 @@
     .xpress-subtitle {
       font-family: Arial, sans-serif !important;
       text-transform: uppercase;
-      letter-spacing: 8px;
+      letter-spacing: 14px;
       font-weight: 700;
       margin: 0;
       margin-top: -2px;
@@ -61,43 +61,39 @@
       text-align: center;
     }
 
-    /* Navbar adjustments */
+    /* Navbar */
     .navbar {
-      background-color: #031635;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
+      background-color: #0A1622;
     }
     .navbar-brand {
       display: flex;
       align-items: center;
-      gap: 25px; /* Default desktop gap */
+      gap: 70px;
     }
     .navbar-brand img {
-      max-height: 150px;
+      max-height: 300px;
       width: auto;
-      display: block;
     }
-
     .nav-link {
       color: white !important;
       cursor: pointer;
     }
 
+    /* Sections */
     .section {
       padding: 40px 15px;
     }
-
     .footer {
-      background-color: #031635;
+      background-color: #0A1622;
       color: white;
       padding: 20px;
       text-align: center;
       font-size: 0.9rem;
     }
 
-    /* Contact Us Section */
+    /* Contact Us */
     #contact {
-      background-color: #031635;
+      background-color: #0A1622;
       color: white;
       padding: 60px 15px;
     }
@@ -105,59 +101,49 @@
     #contact .bg-success { background-color: #25d366 !important; }
     #contact .fa-2x { min-width: 40px; text-align: center; }
 
-    /* Floating PickUp & Drop Button */
+    /* Floating PickUp Button */
     #pickup-floating-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      z-index: 1501; /* Unified z-index for visibility */
+      z-index: 1501;
       border-radius: 50px;
       padding: 12px 25px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.4);
       font-weight: 600;
       background: white;
-      color: #031635;
-      cursor: pointer;
+      color: #0A1622;
       border: none;
       transition: background-color 0.3s ease;
     }
     #pickup-floating-btn:hover {
       background-color: #f8f9fa;
-      color: #031635;
+      color: #0A1622;
     }
 
-    /* Services box styling */
+    /* Services */
     .service-box {
       height: 320px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       border-radius: 0.25rem;
-      padding: 1.5rem !important;
+      padding: 1.5rem;
       transition: box-shadow 0.3s ease;
       position: relative;
-	    background: #ffffff
+      background: #ffffff;
     }
     .service-box:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-    .washing-bg { background: url('img/washing.jpeg') no-repeat center center/cover; color: #031635; }
-    .folding-bg { background: url('img/folding.jpeg') no-repeat center center/cover; color: #031635; }
-    .ironing-bg { background: url('img/ironing.jpg') no-repeat center center/cover; color: #031635; }
 
-    .pickup-btn {
-      background: #ffffff !important;
-      color: #031635 !important;
-      font-weight: 600;
-      border-radius: 8px;
+    .contact-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .pickup-btn:hover { background: #f8f9fa !important; color: #031635 !important; }
-
-    .contact-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .contact-card:hover {
       transform: translateY(-5px);
       box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
     }
 
-    /* Back to top button styling */
+    /* Back to Top Button */
     #back-to-top {
       position: fixed;
       bottom: 100px;
@@ -171,11 +157,11 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
     #back-to-top i {
-      color: #031635;
+      color: #0A1622;
       font-size: 18px;
     }
 
-    /* Media query for mobile-specific adjustments */
+    /* Responsive */
     @media(max-width: 767.98px) {
       .xpress-title {
         font-size: 3rem;
@@ -192,15 +178,13 @@
         flex-direction: column;
         gap: 0;
       }
-      .navbar-brand img { max-height: 50px; }
-
+      .navbar-brand img { max-height: 300px; }
       .service-title-top {
         position: static !important;
         transform: none !important;
         width: 100% !important;
         font-size: 1.2rem !important;
         margin-top: 0.5rem !important;
-        padding: 0 !important;
         background: none !important;
         color: white !important;
       }
@@ -211,16 +195,17 @@
       }
       .footer { padding: 10px; font-size: 0.8rem; }
     }
-    
     @media(max-width: 400px) {
       .xpress-title { font-size: 2.2rem; }
       .xpress-subtitle { font-size: 0.9rem; letter-spacing: 3px; }
     }
+    .navbar-brand .d-flex { margin-top: 80px; }
   </style>
 </head>
 <body>
 
-<nav class="navbar navbar-dark" style="background-color: #0A1622; padding: 0.5rem 1rem;">
+<!-- Logo & Title -->
+<nav class="navbar navbar-dark">
   <a class="navbar-brand" href="#">
     <img src="img/logo1.jpeg" alt="XPRESS WASH Logo" />
     <div class="d-flex flex-column justify-content-center">
@@ -230,46 +215,30 @@
   </a>
 </nav>
 
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #031635; padding: 0.25rem 1rem;">
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarNav"
-    aria-controls="navbarNav"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#services">Services</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#about">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#contact">Contact</a>
-      </li>
+      <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+      <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+      <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
     </ul>
   </div>
 </nav>
 
-<button id="pickup-floating-btn" data-toggle="modal" data-target="#pickupDropModal" aria-label="PickUp & Drop">
-  🚖 PickUp & Drop
-</button>
+<!-- Floating Button -->
+<button id="pickup-floating-btn" data-toggle="modal" data-target="#pickupDropModal">🚖 PickUp & Drop</button>
 
-<div class="modal fade" id="pickupDropModal" tabindex="-1" aria-labelledby="pickupDropLabel" aria-hidden="true">
+<!-- Modal -->
+<div class="modal fade" id="pickupDropModal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content bg-white">
       <div class="modal-header">
-        <h5 class="modal-title" id="pickupDropLabel">PickUp & Drop Form</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
+        <h5 class="modal-title">PickUp & Drop Form</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
       </div>
       <div class="modal-body">
         <form id="pickupForm">
@@ -285,40 +254,40 @@
             <label for="phone">Phone Number</label>
             <input type="tel" class="form-control" id="phone" required />
           </div>
-          <button type="submit" class="btn btn-success w-100">
-            Submit via WhatsApp
-          </button>
+          <button type="submit" class="btn btn-success w-100">Submit via WhatsApp</button>
         </form>
       </div>
     </div>
   </div>
 </div>
 
+<!-- Services -->
 <div class="container-fluid pt-5 pb-3 section" id="services">
   <div class="container">
     <h3 class="display-5 text-center text-uppercase mb-5 text-white">Our Services</h3>
     <div class="row">
       <div class="col-lg-4 col-md-6 mb-4 d-flex flex-column align-items-center">
         <h6 class="service-title-top">Washing</h6>
-        <img src="img/washing.jpeg" alt="Washing" class="img-fluid rounded shadow" style=" height: 300px;" />
+        <img src="img/washing.jpeg" class="img-fluid rounded shadow" style="height: 300px;" />
         <p class="text-white mt-3 text-center">Professional washing that gently cleans your clothes with premium detergents.</p>
       </div>
       <div class="col-lg-4 col-md-6 mb-4 d-flex flex-column align-items-center">
         <h6 class="service-title-top">Drying & Folding</h6>
-        <img src="img/folding.jpeg" alt="Drying & Folding" class="img-fluid rounded shadow" style=" height: 300px;" />
+        <img src="img/folding.jpeg" class="img-fluid rounded shadow" style="height: 300px;" />
         <p class="text-white mt-3 text-center">Efficient drying and expert folding ensures fresh, neat, wrinkle-free clothes.</p>
       </div>
       <div class="col-lg-4 col-md-6 mb-4 d-flex flex-column align-items-center">
         <h6 class="service-title-top">Ironing</h6>
-        <img src="img/ironing.jpg" alt="Ironing" class="img-fluid rounded shadow" style=" height: 300px;" />
+        <img src="img/ironing.jpg" class="img-fluid rounded shadow" style="height: 300px;" />
         <p class="text-white mt-3 text-center">Sharp ironing services that make your clothes crisp and polished.</p>
       </div>
     </div>
   </div>
 </div>
 
+<!-- About -->
 <div class="container-fluid py-5 section" id="about">
-  <div class="container pt-0 pt-lg-4">
+  <div class="container">
     <h5 class="display-5 text-center text-uppercase mb-2 text-white">Learn About Us</h5>
     <h2 class="display-4 text-center text-white mb-3">Your Trusted Laundry Service in the City</h2>
     <div class="row">
@@ -326,73 +295,52 @@
         <img class="img-fluid rounded" src="img/about.jpg" alt="About XPRESS WASH" />
       </div>
       <div class="col-lg-8 mt-2 mt-lg-0 pl-lg-5">
-        <h5 class="font-weight-medium text-white mb-4">
-          Experience the convenience of clean, fresh laundry—professionally handled with care.
-        </h5>
-        <p class="mb-2 text-white">At XPRESS WASH, we deliver top-quality laundry services saving you time and effort, with care in washing, drying, and folding.</p>
-        <p class="mb-2 text-white">From everyday wear to delicate fabrics, our eco-friendly practices ensure clean clothes and happy lives.</p>
+        <h5 class="font-weight-medium text-white mb-4">Experience the convenience of clean, fresh laundry—professionally handled with care.</h5>
+        <p class="text-white">At XPRESS WASH, we deliver top-quality laundry services saving you time and effort.</p>
+        <p class="text-white">From everyday wear to delicate fabrics, our eco-friendly practices ensure clean clothes and happy lives.</p>
         <div class="row">
-          <div class="col-sm-6 pt-3">
-            <div class="d-flex align-items-center">
-              <i class="fa fa-check text-primary mr-2"></i>
-              <p class="text-secondary font-weight-medium m-0">Quality Laundry Service</p>
-            </div>
-          </div>
-          <div class="col-sm-6 pt-3">
-            <div class="d-flex align-items-center">
-              <i class="fa fa-check text-primary mr-2"></i>
-              <p class="text-secondary font-weight-medium m-0">Express Fast Delivery</p>
-            </div>
-          </div>
-          <div class="col-sm-6 pt-3">
-            <div class="d-flex align-items-center">
-              <i class="fa fa-check text-primary mr-2"></i>
-              <p class="text-secondary font-weight-medium m-0">Highly Professional Staff</p>
-            </div>
-          </div>
-          <div class="col-sm-6 pt-3 mb-5">
-            <div class="d-flex align-items-center">
-              <i class="fa fa-check text-primary mr-2"></i>
-              <p class="text-secondary font-weight-medium m-0">100% Satisfaction Guarantee</p>
-            </div>
-          </div>
+          <div class="col-sm-6 pt-3"><i class="fa fa-check text-primary mr-2"></i><span class="text-secondary">Quality Laundry Service</span></div>
+          <div class="col-sm-6 pt-3"><i class="fa fa-check text-primary mr-2"></i><span class="text-secondary">Express Fast Delivery</span></div>
+          <div class="col-sm-6 pt-3"><i class="fa fa-check text-primary mr-2"></i><span class="text-secondary">Highly Professional Staff</span></div>
+          <div class="col-sm-6 pt-3 mb-5"><i class="fa fa-check text-primary mr-2"></i><span class="text-secondary">100% Satisfaction Guarantee</span></div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container-fluid py-5" id="contact" style="background:#031635;">
+<!-- Contact -->
+<div class="container-fluid py-5" id="contact">
   <div class="container">
     <h4 class="display-5 text-center text-uppercase mb-5 text-white">Contact Us</h4>
     <div class="row gy-4 gx-4">
       <div class="col-md-6 col-lg-3">
         <div class="d-flex flex-column align-items-center justify-content-center bg-primary text-white p-4 rounded h-100 contact-card text-center">
           <i class="fa fa-map-marker-alt fa-2x mb-3"></i>
-          <h5 class="mb-2">Our Location</h5>
-          <p class="mb-0"><a href="https://maps.app.goo.gl/gUQyHYoPBKKNcqXbA" target="_blank" style="color: #fff; text-decoration: underline;">Namakkal, TamilNadu</a></p>
+          <h5>Our Location</h5>
+          <p><a href="https://maps.app.goo.gl/gUQyHYoPBKKNcqXbA" target="_blank" style="color: #fff; text-decoration: underline;">Namakkal, TamilNadu</a></p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="d-flex flex-column align-items-center justify-content-center bg-primary text-white p-4 rounded h-100 contact-card text-center">
           <i class="fa fa-envelope fa-2x mb-3"></i>
-          <h5 class="mb-2">Email Us</h5>
-          <p class="mb-0"><a href="mailto:express2laundry@gmail.com" class="text-white text-decoration-none">express2laundry@gmail.com</a></p>
+          <h5>Email Us</h5>
+          <p><a href="mailto:express2laundry@gmail.com" class="text-white">express2laundry@gmail.com</a></p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="d-flex flex-column align-items-center justify-content-center bg-primary text-white p-4 rounded h-100 contact-card text-center">
           <i class="fa fa-phone-alt fa-2x mb-3"></i>
-          <h5 class="mb-2">Call Us</h5>
-          <p class="mb-0"><a href="tel:+916379906509" class="text-white" style="text-decoration: none;">+91 63799 06509</a></p>
+          <h5>Call Us</h5>
+          <p><a href="tel:+916379906509" class="text-white">+91 63799 06509</a></p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
-        <a href="https://wa.me/916379906509" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+        <a href="https://wa.me/916379906509" target="_blank" style="text-decoration: none; color: inherit;">
           <div class="d-flex flex-column align-items-center justify-content-center bg-success text-white p-4 rounded h-100 contact-card text-center">
             <i class="fa fa-whatsapp fa-2x mb-3"></i>
-            <h5 class="mb-2">WhatsApp</h5>
-            <p class="mb-0">Chat with Us</p>
+            <h5>WhatsApp</h5>
+            <p>Chat with Us</p>
           </div>
         </a>
       </div>
@@ -400,15 +348,18 @@
   </div>
 </div>
 
+<!-- Footer -->
 <footer class="footer">© 2025 XPRESS WASH. All rights reserved.</footer>
 
-<button id="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+<!-- Back to top -->
+<button id="back-to-top"><i class="fas fa-chevron-up"></i></button>
 
+<!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-  // Smooth scroll for nav links
+  // Smooth scroll
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
@@ -417,7 +368,7 @@
     });
   });
 
-  // Show Back to Top button when scrolled down
+  // Back to Top
   const backToTopBtn = document.getElementById('back-to-top');
   window.addEventListener('scroll', () => {
     backToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
@@ -426,7 +377,7 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // WhatsApp form submit with URL encoding
+  // WhatsApp Form Submit
   document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("pickupForm").addEventListener("submit", function(e) {
       e.preventDefault();
@@ -439,8 +390,7 @@
       }
       let whatsappNumber = "916379906509";
       let message = `Hello, I want PickUp & Drop Service.\nName: ${name}\nAddress: ${address}\nPhone: ${phone}`;
-      let encodedMessage = encodeURIComponent(message);
-      let url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+      let url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
       window.open(url, "_blank");
     });
   });
